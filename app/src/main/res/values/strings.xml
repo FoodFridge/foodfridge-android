@@ -3,5 +3,6 @@
     <string name="landing_main">Let\'s cook something from your fridge!</string>
     <string name="landing_sub">Select items from categories below</string>
     <string name="chef_image">Chef Image</string>
+    <string name="dairy_image">Dairy Image</string>
     <string name="generate_recipe_button">Generate Recipe</string>
 </resources>
