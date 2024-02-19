@@ -2,6 +2,7 @@ package com.example.foodfridge.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -25,7 +26,10 @@ fun PantryCategoryComponent(){
         val pantryCategory = arrayOf("Carb", "Vegitable","Meat","Fruit","Dairy","Seasoning","Seafood","Pantry")
         val imageModifier = Modifier.size(20.dp)
 
-        LazyVerticalGrid(columns = GridCells.Fixed(2)){
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+        ){
             items(pantryCategory.size){
                 index ->
                     Button(
