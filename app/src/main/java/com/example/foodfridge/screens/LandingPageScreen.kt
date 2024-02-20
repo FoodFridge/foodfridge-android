@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.foodfridge.R
 import com.example.foodfridge.components.IngredientsDisplayComponent
+import com.example.foodfridge.components.NormalText
+import com.example.foodfridge.components.NormalTextBold
 import com.example.foodfridge.components.PantryCategoryComponent
 import com.example.foodfridge.ui.theme.courierFontFamily
 
@@ -32,17 +34,16 @@ fun LandingPageScreen(){
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ){
-            Text(
-                modifier = Modifier.padding(start = 10.dp, top = 10.dp, end = 10.dp),
-                text = "Let\'s cook something from your fridge!",
-                fontFamily = courierFontFamily,
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 30.sp
+            NormalTextBold(
+                value = "Let\'s cook something from your fridge!",
+                fontSize = 30,
+                modifier = Modifier.padding(start = 10.dp, top = 10.dp, end = 10.dp)
             )
-            Text(
+
+            NormalTextBold(
+                value = "Select items from categories below",
+                fontSize = 11,
                 modifier = Modifier.padding(start = 10.dp).fillMaxWidth(),
-                text = "Select items from categories below",
-                fontFamily = courierFontFamily
             )
 
             IngredientsDisplayComponent()

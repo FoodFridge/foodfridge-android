@@ -11,16 +11,30 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.foodfridge.ui.theme.courierFontFamily
 
 @Composable
-fun NormalTextComponent(value: String, fontSize: Int, fontFamily: FontFamily){
+fun NormalText(value: String, fontSize: Int, modifier: Modifier = Modifier){
     Text(
         text = value,
-        modifier = Modifier.fillMaxWidth().heightIn(min = 80.dp),
+        modifier = modifier,
         style = TextStyle(
             fontSize = fontSize.sp,
-            fontWeight = FontWeight.Normal,
-            fontFamily = fontFamily
+            fontFamily = courierFontFamily,
+            )
+    )
+}
+@Composable
+fun NormalTextBold(value: String, fontSize: Int, modifier: Modifier){
+    Text(
+        text = value,
+        modifier = modifier,
+        style = TextStyle(
+            fontSize = fontSize.sp,
+            fontWeight = FontWeight.SemiBold,
+            fontFamily = courierFontFamily,
+
         )
     )
 }
+
