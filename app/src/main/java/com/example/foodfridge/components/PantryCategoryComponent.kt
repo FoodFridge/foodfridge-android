@@ -3,6 +3,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -36,14 +37,14 @@ fun PantryCategoryComponent(){
                 Button(
                     onClick = {},
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(10, 54, 10),
-                        contentColor = Color(242, 195, 65)
+                        containerColor = Color(0, 66, 37),
+                        contentColor = Color(255, 207, 157)
                     ),
                     modifier = Modifier.padding(start = 1.dp, end = 1.dp)
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center,
+                        horizontalArrangement = Arrangement.Start,
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Image(
@@ -52,7 +53,9 @@ fun PantryCategoryComponent(){
                             modifier = Modifier
                                 .size(20.dp)
                         )
-                        NormalTextBold(value = pantryCategory[index], fontSize = 13, modifier = Modifier.padding(start = 10.dp))
+                        Spacer(Modifier.weight(1f))
+                        NormalTextBold(value = pantryCategory[index], fontSize = 13, modifier = Modifier)
+                        Spacer(Modifier.weight(1f))
                     }
                 }
             }
