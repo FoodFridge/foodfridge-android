@@ -1,6 +1,9 @@
 package com.example.foodfridge.components
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -27,35 +30,33 @@ fun PantryCategoryComponent(){
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             modifier = Modifier.padding(start = 10.dp, end = 10.dp)
-        ){
-            items(pantryCategory.size){
-                index ->
-                    Button(
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color(10, 54, 10),
-                            contentColor =  Color(242, 195, 65)
-                        ),
-                    ){
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.dairy),
-                                contentDescription = stringResource(id = R.string.dairy_image),
-                                modifier = Modifier
-                                            .size(20.dp)
-                            )
-                            Text(
-                                text = pantryCategory[index],
-                                modifier = Modifier.weight(1f).padding(start = 30.dp)
-                                )
-                        }
+        ) {
+            items(pantryCategory.size) { index ->
+                Button(
+                    onClick = {},
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0, 66, 37),
+                        contentColor = Color(255, 207, 157)
+                    ),
+                    modifier = Modifier.padding(start = 1.dp, end = 1.dp)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Start,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.dairy),
+                            contentDescription = stringResource(id = R.string.dairy_image),
+                            modifier = Modifier
+                                .size(20.dp)
+                        )
+                        Spacer(Modifier.weight(1f))
+                        NormalTextBold(value = pantryCategory[index], fontSize = 13, modifier = Modifier)
+                        Spacer(Modifier.weight(1f))
                     }
+                }
             }
         }
-
-
     }
 }
