@@ -1,4 +1,4 @@
-package com.example.foodfridge.components
+package com.example.foodfridge.home
 
 import android.app.Dialog
 import androidx.compose.runtime.Composable

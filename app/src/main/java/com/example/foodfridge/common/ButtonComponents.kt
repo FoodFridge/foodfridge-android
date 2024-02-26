@@ -1,4 +1,4 @@
-package com.example.foodfridge.components
+package com.example.foodfridge.common
 
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
