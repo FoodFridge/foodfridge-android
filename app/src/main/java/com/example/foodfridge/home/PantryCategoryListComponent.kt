@@ -20,9 +20,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.foodfridge.R
 import com.example.foodfridge.common.NormalTextBold
+import com.example.foodfridge.ingredientsmenu.IngredientsListDialog
+import com.example.foodfridge.ingredientsmenu.IngredientsListViewModel
 
 @Composable
-fun PantryCategoryComponent(){
+fun PantryCategoryComponent(
+    viewModel: IngredientsListViewModel
+){
     Surface {
         val pantryCategory = arrayOf("Carb", "Vegitable","Meat","Fruit","Dairy","Seasoning","Seafood","Pantry")
 
@@ -32,7 +36,9 @@ fun PantryCategoryComponent(){
         ) {
             items(pantryCategory.size) { index ->
                 Button(
-                    onClick = {},
+                    onClick = {
+                              viewModel.onOpenDialog()
+                    },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0, 66, 37),
                         contentColor = Color(255, 207, 157)
@@ -57,5 +63,12 @@ fun PantryCategoryComponent(){
                 }
             }
         }
+    }
+    if(viewModel.isDialogShown){
+        IngredientsListDialog(
+            onDismiss = {
+                viewModel.onDismissDialog()
+            },
+            onConfirm = {})
     }
 }

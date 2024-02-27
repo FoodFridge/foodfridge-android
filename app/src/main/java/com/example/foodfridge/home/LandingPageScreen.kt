@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.foodfridge.R
 import com.example.foodfridge.common.NormalTextBold
+import com.example.foodfridge.ingredientsmenu.IngredientsListViewModel
 
 @Composable
 fun LandingPageScreen(){
@@ -45,7 +46,7 @@ fun LandingPageScreen(){
                 contentDescription = stringResource(id = R.string.chef_image),
                 modifier = Modifier.size(230.dp)
             )
-            PantryCategoryComponent()
+            PantryCategoryComponent(viewModel = IngredientsListViewModel())
         }
     }
 }
