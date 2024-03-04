@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.foodfridge.R
 import com.example.foodfridge.common.NormalTextBold
+import com.example.foodfridge.common.PantryCategory
 import com.example.foodfridge.ingredientsmenu.IngredientsListDialog
 import com.example.foodfridge.ingredientsmenu.IngredientsListViewModel
 
@@ -28,7 +29,7 @@ fun PantryCategoryComponent(
     viewModel: IngredientsListViewModel
 ){
     Surface {
-        val pantryCategory = arrayOf("Carb", "Vegitable","Meat","Fruit","Dairy","Seasoning","Seafood","Pantry")
+        val pantryCategory = PantryCategory.pantryCategory
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
@@ -57,7 +58,7 @@ fun PantryCategoryComponent(
                                 .size(20.dp)
                         )
                         Spacer(Modifier.weight(1f))
-                        NormalTextBold(value = pantryCategory[index], fontSize = 13, modifier = Modifier)
+                        NormalTextBold(value = pantryCategory[index].name, fontSize = 13, modifier = Modifier)
                         Spacer(Modifier.weight(1f))
                     }
                 }
