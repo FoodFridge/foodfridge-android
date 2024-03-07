@@ -16,7 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foodfridge.common.PantryIngredient
+import com.example.foodfridge.ingredientsmenu.IngredientsListViewModel
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +34,7 @@ fun IngredientsListDialog(
             usePlatformDefaultWidth = false
         )
     ){
+        val ingredientsListViewModel: IngredientsListViewModel = viewModel()
         val ingredients = PantryIngredient.pantryIngredient
         Card(
             shape = RoundedCornerShape(15.dp),
@@ -43,11 +46,10 @@ fun IngredientsListDialog(
                     .fillMaxWidth()
                     .padding(15.dp),
             ){
-
                 for (ingredient in ingredients){
-                    // NormalTextBold(value = ingredient.ingredient_name, fontSize = 13, modifier = Modifier)
                     SuggestionChip(
-                        onClick = {},
+                        onClick = {
+                            ingredientsListViewModel.addSelectedChip(ingredient)},
                         label = { Text(ingredient.ingredient_name)}
                     )
                 }
