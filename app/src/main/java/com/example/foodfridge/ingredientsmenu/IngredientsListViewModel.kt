@@ -18,6 +18,11 @@ class IngredientsListViewModel: ViewModel() {
         currentChips.add(chipValue)
         _selectedChips.value = currentChips
     }
+
+    fun deleteSelectedChip(chipValue: Ingredient){
+
+    }
+
     var isDialogShown by mutableStateOf(false)
         private set
 
