@@ -17,7 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foodfridge.R
 import com.example.foodfridge.common.NormalTextBold
 import com.example.foodfridge.common.PantryCategory
@@ -25,9 +27,8 @@ import com.example.foodfridge.ingredientsmenu.IngredientsListDialog
 import com.example.foodfridge.ingredientsmenu.IngredientsListViewModel
 
 @Composable
-fun PantryCategoryComponent(
-    viewModel: IngredientsListViewModel
-){
+fun CategoryButtonComponent(){
+    val ingredientsListViewModel: IngredientsListViewModel = viewModel()
     Surface {
         val pantryCategory = PantryCategory.pantryCategory
 
@@ -38,7 +39,7 @@ fun PantryCategoryComponent(
             items(pantryCategory.size) { index ->
                 Button(
                     onClick = {
-                              viewModel.onOpenDialog()
+                        ingredientsListViewModel.onOpenDialog()
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0, 66, 37),
@@ -65,11 +66,17 @@ fun PantryCategoryComponent(
             }
         }
     }
-    if(viewModel.isDialogShown){
+    if(ingredientsListViewModel.isDialogShown){
         IngredientsListDialog(
             onDismiss = {
-                viewModel.onDismissDialog()
+                ingredientsListViewModel.onDismissDialog()
             },
             onConfirm = {})
     }
+}
+
+@Preview
+@Composable
+fun DefaultPreviewOfCategoryButtonComponent(){
+    CategoryButtonComponent()
 }

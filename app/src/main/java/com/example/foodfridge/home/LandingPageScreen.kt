@@ -37,16 +37,18 @@ fun LandingPageScreen(){
             NormalTextBold(
                 value = "Select items from categories below",
                 fontSize = 11,
-                modifier = Modifier.padding(start = 10.dp).fillMaxWidth(),
+                modifier = Modifier
+                    .padding(start = 10.dp)
+                    .fillMaxWidth(),
             )
 
-            IngredientsDisplayComponent()
+            ScreenComponent()
             Image(
                 painter = painterResource(id = R.drawable.chef),
                 contentDescription = stringResource(id = R.string.chef_image),
                 modifier = Modifier.size(230.dp)
             )
-            PantryCategoryComponent(viewModel = IngredientsListViewModel())
+            CategoryButtonComponent()
         }
     }
 }

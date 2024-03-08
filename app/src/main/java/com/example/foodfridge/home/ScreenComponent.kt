@@ -30,7 +30,7 @@ import com.example.foodfridge.ingredientsmenu.IngredientsListViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun IngredientsDisplayComponent() {
+fun ScreenComponent() {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -87,7 +87,7 @@ fun IngredientsDisplayComponent() {
 @Preview
 @Composable
 fun DefaultPreviewOfIngredientsDisplayComponent(){
-    IngredientsDisplayComponent()
+    ScreenComponent()
 }
 
 
