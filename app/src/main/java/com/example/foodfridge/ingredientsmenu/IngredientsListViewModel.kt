@@ -1,5 +1,6 @@
 package com.example.foodfridge.ingredientsmenu
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -20,7 +21,9 @@ class IngredientsListViewModel: ViewModel() {
     }
 
     fun deleteSelectedChip(chipValue: Ingredient){
-
+        val currentChips = _selectedChips.value.orEmpty().toMutableList()
+        currentChips.remove(chipValue)
+        _selectedChips.value = currentChips
     }
 
     var isDialogShown by mutableStateOf(false)

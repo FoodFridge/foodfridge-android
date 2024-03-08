@@ -51,7 +51,7 @@ fun IngredientsDisplayComponent() {
             if(!selectedChips.isNullOrEmpty()){
                 for (chip in selectedChips!!){
                     SuggestionChip(
-                        onClick = { /*TODO*/ },
+                        onClick = {ingredientsListViewModel.deleteSelectedChip(chip)},
                         label = { Text(chip.ingredient_name) }
                     )
                 }
